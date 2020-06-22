@@ -7,6 +7,21 @@ except ImportError:
     pass
 
 pygame.init()
+
+
+pygame.mixer.pre_init(4410,8,2,512)
+
+
+
+pygame.mixer.music.load("Pop.mp3")
+# def set_valume():
+     
+
+
+
+
+
+
 dis = pygame.display.set_mode((900,600))
 pygame.display.set_caption("Expand your aria")
 
@@ -112,7 +127,7 @@ def main():
      
      foods = []
      foods.append(food1)
-      
+     volume = 0.5
      
      
      while notover :
@@ -122,10 +137,22 @@ def main():
                     pygame.quit()
 
                     quit()
+               if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_1:
+                         # pygame.mixer.music.set_volume(0.5)
+                         if volume <=1:
+                              volume += 0.1
+                    if event.key == pygame.K_2:
+                         if volume >=0.0:
+                              volume -= 0.1
           p.move()
           r1=p.draw()
+          print(volume)
+          pygame.mixer.music.set_volume(volume)
+          message("1 : volume ++",(255,255,255),800*3-300,100)
+          message("2 : volume --",(255,255,255),800*3-300,200)
           message("score", (255,255,255),800*3-200,10)
-          message(str(p.score), (255,255,255),800*3+100,10)
+          message(str(p.score), (255,255,255),800*3+50,10)
          
           for i in foods:
               
@@ -137,11 +164,13 @@ def main():
                if r1.colliderect(r2):
                    
                     if i.name == "good":
+                         pygame.mixer.music.play()
                          p.big()
                          p.score += 10
                         
                          
                     elif i.name == "bad":
+                         pygame.mixer.music.play()
                          p.score -=5
                          p.smal()
 
