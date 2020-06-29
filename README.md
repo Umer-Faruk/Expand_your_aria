@@ -9,3 +9,6 @@ yellow coins make you big and red coins reduce your size also score
 
 ## download .exe from
 https://github.com/Umer-Faruk/Expand_your_aria/blob/master/expand_your_aria/dist/expand_your_aria
+
+![alt text](https://github.com/Umer-Faruk/Expand_your_aria/blob/master/image.png?raw=true)
+
